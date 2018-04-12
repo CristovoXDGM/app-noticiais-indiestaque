@@ -1,16 +1,31 @@
+import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { StatusBar } from '@ionic-native/status-bar';
-
+import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+import { NoticiasPage } from '../pages/noticias/noticias';
+import { IndiesDoMomentoPage } from '../pages/indies-do-momento/indies-do-momento';
+import { TrailersPage } from '../pages/trailers/trailers';
+import { IndiesExclusivosPage } from '../pages/indies-exclusivos/indies-exclusivos';
+import { NotificaEsPage } from '../pages/notifica-es/notifica-es';
+import { OpEsPage } from '../pages/op-es/op-es';
+import { LoginPage } from '../pages/login/login';
+import { CadastrarPage } from '../pages/cadastrar/cadastrar';
+
+
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    NoticiasPage,
+    IndiesDoMomentoPage,
+    TrailersPage,
+    IndiesExclusivosPage,
+    NotificaEsPage,
+    OpEsPage,
+    LoginPage,
+    CadastrarPage
   ],
   imports: [
     BrowserModule,
@@ -19,7 +34,14 @@ import { HomePage } from '../pages/home/home';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    NoticiasPage,
+    IndiesDoMomentoPage,
+    TrailersPage,
+    IndiesExclusivosPage,
+    NotificaEsPage,
+    OpEsPage,
+    LoginPage,
+    CadastrarPage
   ],
   providers: [
     StatusBar,

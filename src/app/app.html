@@ -1,1 +1,58 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content]="mainContent" >
+  <ion-header color="Navbar">
+    <ion-toolbar >
+      <ion-title>
+        Menu
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content id="side-menu21" color = "Background">
+    <ion-list id="menu-list1" color = "Navbar">
+      <ion-item-sliding >
+
+        <ion-grid ion-item color="Navbar" id="menu-list-item4">
+            <h2>
+                Faça Login no Aplicativo<br/>para receber novidades
+              </h2>
+          <ion-row>
+              <ion-col>
+                  <button  menuClose="" ion-button item-left (click)="goToLogin()" > entrar</button>
+              </ion-col>
+            <ion-col >
+               <ion-avatar item-left>
+                <img src="assets/img/j4gk6FFxT3anPxcTFJeO_register.png" />
+               </ion-avatar>
+               
+              </ion-col>
+             
+        </ion-row>
+          
+        </ion-grid>
+        
+      </ion-item-sliding>
+      <button ion-item color="SideMenu" menuClose="" on-click="goToNoticias()" id="menu-list-item1">
+        Noticias
+      </button>
+      <button ion-item color="SideMenu" menuClose="" on-click="goToIndiesDoMomento()" id="menu-list-item2">
+        indies do momento
+      </button>
+      <button ion-item color="SideMenu" menuClose="" on-click="goToTrailers()" id="menu-list-item3">
+        Trailers
+      </button>
+      <button ion-item color="SideMenu" menuClose="" on-click="goToIndiesExclusivos()" id="menu-list-item5">
+        indies excluisivos
+      </button>
+      <button ion-item color="SideMenu" id="menu-list-item6">
+        Notificações
+      </button>
+    </ion-list>
+    <div class="spacer" style="width:268px;height:10px;" id="menu-spacer1"></div>
+    <ion-list id="menu-list2">
+      <button ion-item color="SideMenu" menuClose="" on-click="goToOpEs()" id="menu-list-item7">
+        Opções
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-nav #mainContent [root]="rootPage"></ion-nav>
