@@ -6,7 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { IndiesDoMomentoPage } from '../pages/indies-do-momento/indies-do-momento';
 import { TrailersPage } from '../pages/trailers/trailers';
 import { IndiesExclusivosPage } from '../pages/indies-exclusivos/indies-exclusivos';
-import { OpEsPage } from '../pages/op-es/op-es';
+import { OpEsPage } from '../pages/opcoes/opcoes';
 
 
 import { NoticiasPage } from '../pages/noticias/noticias';

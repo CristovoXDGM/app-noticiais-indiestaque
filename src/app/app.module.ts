@@ -7,7 +7,7 @@ import { IndiesDoMomentoPage } from '../pages/indies-do-momento/indies-do-moment
 import { TrailersPage } from '../pages/trailers/trailers';
 import { IndiesExclusivosPage } from '../pages/indies-exclusivos/indies-exclusivos';
 import { NotificaEsPage } from '../pages/notifica-es/notifica-es';
-import { OpEsPage } from '../pages/op-es/op-es';
+import { OpEsPage } from '../pages/opcoes/opcoes';
 import { LoginPage } from '../pages/login/login';
 import { CadastrarPage } from '../pages/cadastrar/cadastrar';
 

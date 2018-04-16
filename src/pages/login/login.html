@@ -1,0 +1,76 @@
+  <ion-header>
+    <ion-navbar color ="Navbar">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>
+        <div text-right>
+        Entrar no aplicativo
+      </div>
+      </ion-title>
+      <ion-buttons end>
+        <button ion-button icon-only>
+          <ion-icon name="more"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+
+  
+  <ion-content style="background-color: #087F5B" >
+    <ion-list  >
+      <ion-grid>
+      
+        <ion-row>
+
+          <ion-item color="Background">
+            <ion-label stacked color="light" >Usuário ou E-mail</ion-label>
+            <ion-input large type = "text" color="light"  ></ion-input>
+          </ion-item>
+
+        <ion-item color="Background" >
+          <ion-label stacked color="light" >Senha</ion-label>
+          <ion-input large type = "password" color="light"  ></ion-input>
+        </ion-item>
+
+      </ion-row>
+
+      <ion-row>
+        <ion-col  > 
+          <button ion-button round full>Entrar</button>
+        </ion-col>
+      </ion-row>
+        <ion-row>
+          <ion-col>
+              <a href="#">Esqueceu a senha ?</a>
+          </ion-col>
+          <ion-col>
+              <a (click)="goTocadastrar()">Cadastrar-se</a>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-label color="light" >Entrar também com:</ion-label>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+              <button class="twitter" color="light">
+                <ion-icon  color="light" name="logo-twitter"></ion-icon>
+              </button>
+          </ion-col>
+          <ion-col>
+              <button class="facebook" ion-button color="light">
+                <ion-icon  color="light" name="logo-facebook"></ion-icon>
+              </button>
+          </ion-col>
+          <ion-col>
+              <button class="gmail" ion-button color="light">
+                <ion-icon color="light" name="logo-google"></ion-icon>
+              </button>
+          </ion-col>
+          
+        </ion-row>
+    </ion-grid>    
+  </ion-list>
+  
+  </ion-content>
