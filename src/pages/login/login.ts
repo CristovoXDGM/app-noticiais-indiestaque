@@ -1,6 +1,8 @@
 import { CadastrarPage } from './../cadastrar/cadastrar';
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController  } from 'ionic-angular';
+
+
 
 @Component({
   selector: 'page-login',

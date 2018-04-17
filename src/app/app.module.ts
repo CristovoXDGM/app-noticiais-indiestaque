@@ -1,3 +1,4 @@
+ 
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -14,6 +15,7 @@ import { CadastrarPage } from '../pages/cadastrar/cadastrar';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { PopoverComponent } from '../components/popover/popover';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     NotificaEsPage,
     OpEsPage,
     LoginPage,
-    CadastrarPage
+    CadastrarPage,
+    PopoverComponent
+     
   ],
   imports: [
     BrowserModule,
@@ -41,7 +45,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     NotificaEsPage,
     OpEsPage,
     LoginPage,
-    CadastrarPage
+    CadastrarPage,
+    PopoverComponent
+     
   ],
   providers: [
     StatusBar,
