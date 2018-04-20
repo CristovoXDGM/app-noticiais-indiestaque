@@ -12,7 +12,7 @@ import { OpEsPage } from '../pages/opcoes/opcoes';
 import { LoginPage } from '../pages/login/login';
 import { CadastrarPage } from '../pages/cadastrar/cadastrar';
 
-
+import {YoutubeVideoPlayer} from '@ionic-native/youtube-video-player';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { PopoverComponent } from '../components/popover/popover';
@@ -52,7 +52,8 @@ import { PopoverComponent } from '../components/popover/popover';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    YoutubeVideoPlayer
   ]
 })
 export class AppModule {}

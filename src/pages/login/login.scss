@@ -12,6 +12,18 @@ page-login {
         .gmail{
             background-color: rgb(184, 46, 64)
         }
+        a:link{
+            color: black;
+        }
+        a:hover{
+            color: red
+        }
+        a:visited {
+            color: black;
+        }
+        a:active {
+            color: yellow;
+        }
         
        
 }

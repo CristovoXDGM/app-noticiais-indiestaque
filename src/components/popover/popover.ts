@@ -13,6 +13,8 @@ import { ViewController } from 'ionic-angular';
 })
 export class PopoverComponent {
 
+
+
   items:any;
 
   text: string;
