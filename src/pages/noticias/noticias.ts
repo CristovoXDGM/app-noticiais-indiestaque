@@ -16,7 +16,8 @@ export class NoticiasPage {
 
     popover.present();
     popover.onDidDismiss(popoverData=>{
-      console.log(popoverData);
+      
+      
       
     })
   }
