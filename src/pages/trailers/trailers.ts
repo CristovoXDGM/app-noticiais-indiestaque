@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
+ 
 
 @Component({
   selector: 'page-trailers',
@@ -8,11 +8,11 @@ import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 })
 export class TrailersPage {
 
-  constructor(public navCtrl: NavController, private youtube: YoutubeVideoPlayer) {
+  constructor(public navCtrl: NavController ) {
   }
 
   goToVideo(){
-    this.youtube.openVideo('m1YJGrT8JSw&t=63s');
+   
   }
   
 }
