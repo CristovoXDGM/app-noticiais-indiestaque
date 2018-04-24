@@ -14,15 +14,16 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding id="page1" >
+
   <ion-row >
-      <ion-card >
-          <ion-card-header >
-              <p>Categoria do jogo</p>
-              <h2>Nome da noticia</h2>
+      <ion-card *ngFor="let noticia of noticia">
+          <ion-card-header  >
+              <p>{{noticia.categoria}}</p>
+              <h2>{{noticia.tituloNoticia}}</h2>
           </ion-card-header>
-            <img src="assets/img/Cuphead.png"/>
+            <img [src]="noticia.img"/>
             <ion-card-content>
-                <h2>parte da materia</h2>
+                <h2>{{noticia.parteMateria}}</h2>
               </ion-card-content>
               <ion-row>
                 <ion-col>
@@ -34,24 +35,7 @@
               </ion-row>
     </ion-card>
   </ion-row>
-  <ion-row >
-      <ion-card >
-          <ion-card-header >
-              <p>Categoria do jogo</p>
-              <h2>Nome da noticia</h2>
-          </ion-card-header>
-            <img src="assets/img/Celeste.jpg"/>
-            <ion-card-content>
-              <h2>parte da materia</h2>
-            </ion-card-content>
-            <ion-row>
-              <ion-col>
-                <button ion-button clear small>Ver noticia</button>
-              </ion-col>
-              <ion-col>
-                  <button ion-button clear small>Ver Video</button>
-              </ion-col>
-            </ion-row>
-    </ion-card>
-  </ion-row>
+
+   
+
 </ion-content>

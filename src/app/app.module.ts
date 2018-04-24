@@ -16,7 +16,7 @@ import { CadastrarPage } from '../pages/cadastrar/cadastrar';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { PopoverComponent } from '../components/popover/popover';
-
+ 
 @NgModule({
   declarations: [
     MyApp,

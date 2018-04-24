@@ -11,8 +11,6 @@ export class TrailersPage {
   constructor(public navCtrl: NavController ) {
   }
 
-  goToVideo(){
-   
-  }
+  
   
 }
