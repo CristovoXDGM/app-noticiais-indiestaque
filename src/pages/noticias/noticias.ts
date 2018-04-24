@@ -11,7 +11,7 @@ import { AlertController } from 'ionic-angular';
 export class NoticiasPage {
 
 //implementar Firebase nessa parte
-
+//nova mundaça teste
   noticia = [
     {
       id:1,
