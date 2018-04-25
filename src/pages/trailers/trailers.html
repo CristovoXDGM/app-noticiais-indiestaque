@@ -14,23 +14,17 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding id="page3"  >
-  <ion-row>
-    <ion-card  >
-        <a href="https://www.youtube.com/watch?v=2kPSl2vyu2Y">
-      <img src="assets/img/oriori.jpg"> 
+  <ion-row *ngFor="let trailers of trailers">
+    <ion-card   >
+      <ion-card-title padding>{{trailers.titulo}}</ion-card-title>  
+    <a [href]="trailers.link">
+      <img [src]="trailers.thumbnail"> 
     </a>    
-      <ion-card-title>Melhor jogo indie exclusivo de Xbox one</ion-card-title>
+      
     </ion-card>
   </ion-row>
 
-  <ion-row>
-      <ion-card  >
-          <a href="https://www.youtube.com/watch?v=D-1n15aIgsE">
-        <img src="assets/img/Cuphead.png"> 
-      </a>    
-        <ion-card-title>Melhor jogo indie exclusivo de Xbox one</ion-card-title>
-      </ion-card>
-    </ion-row>
+  
 
   
    
