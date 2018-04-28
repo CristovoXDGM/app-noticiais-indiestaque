@@ -1,4 +1,7 @@
- 
+import { QuartaNoticiaaPage } from './../pages/quarta-noticiaa/quarta-noticiaa';
+import { SegundaNoticiaaPage } from './../pages/segunda-noticiaa/segunda-noticiaa';
+import { PrimeiraNoticiaPage } from './../pages/primeira-noticia/primeira-noticia';
+
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -12,10 +15,12 @@ import { OpEsPage } from '../pages/opcoes/opcoes';
 import { LoginPage } from '../pages/login/login';
 import { CadastrarPage } from '../pages/cadastrar/cadastrar';
 
- 
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { PopoverComponent } from '../components/popover/popover';
+import { TerceiraNoticiaaPage } from '../pages/terceira-noticiaa/terceira-noticiaa';
+import { Push  } from '@ionic-native/push';
  
 @NgModule({
   declarations: [
@@ -28,7 +33,11 @@ import { PopoverComponent } from '../components/popover/popover';
     OpEsPage,
     LoginPage,
     CadastrarPage,
-    PopoverComponent
+    PopoverComponent,
+    PrimeiraNoticiaPage,
+    SegundaNoticiaaPage,
+    TerceiraNoticiaaPage,
+    QuartaNoticiaaPage
      
   ],
   imports: [
@@ -46,13 +55,18 @@ import { PopoverComponent } from '../components/popover/popover';
     OpEsPage,
     LoginPage,
     CadastrarPage,
-    PopoverComponent
+    PopoverComponent,
+    PrimeiraNoticiaPage,
+    SegundaNoticiaaPage,
+    TerceiraNoticiaaPage,
+    QuartaNoticiaaPage
      
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler} 
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Push
   ]
 })
 export class AppModule {}
