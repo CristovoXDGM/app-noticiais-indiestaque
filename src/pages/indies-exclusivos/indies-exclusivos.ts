@@ -7,7 +7,26 @@ import { NavController } from 'ionic-angular';
 })
 export class IndiesExclusivosPage {
 
+
+  plataforma = [
+    {
+      nome:'Xbox'
+    },
+    {
+      nome:'Playstation'
+    },
+    {
+      nome:'Nintendo'
+    },
+    {
+      nome:'PC'
+    }
+  ];
+
   constructor(public navCtrl: NavController) {
   }
-  
+ 
+  //terminar de construir a pagina de exclusivos de cada plataforma
+
+
 }

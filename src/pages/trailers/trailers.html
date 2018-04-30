@@ -16,7 +16,7 @@
 <ion-content padding id="page3"  >
   <ion-row *ngFor="let trailers of trailers">
     <ion-card   >
-      <ion-card-title padding>{{trailers.titulo}}</ion-card-title>  
+      <ion-card-header >{{trailers.titulo}}</ion-card-header>  
     <a [href]="trailers.link">
       <img [src]="trailers.thumbnail"> 
     </a>    

@@ -18,7 +18,7 @@
 <ion-grid >
   <ion-row >
     <ion-item  color="Background" class="page-cadastrar">
-        <img src="assets/img/j4gk6FFxT3anPxcTFJeO_register.png" />
+        <img src="{{myphoto}}" />
   </ion-item>
   <ion-item color="Background" >
    
@@ -29,7 +29,7 @@
     </button>
   </ion-col>
   <ion-col>
-    <button ion-button icon-start >
+    <button ion-button icon-start (click)="takePhoto()">
         <ion-icon  name="camera"></ion-icon>
         <p>Tirar foto</p>
     </button>

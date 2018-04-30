@@ -27,7 +27,7 @@ export class NoticiasPage {
     {
       id:1,
       categoria:'Categoria do jogo',
-      tituloNoticia:'Nome da noticia',
+      tituloNoticia:'Nunca negocie com o Diabo!!',
       parteMateria:'parte da materia',
       img:"./assets/img/Cuphead.png",
       
@@ -35,21 +35,21 @@ export class NoticiasPage {
     {
       id:2,
       categoria:'Categoria do jogo',
-      tituloNoticia:'Nome da noticia',
+      tituloNoticia:'Celeste um game que Impressiona',
       parteMateria:'parte da materia',
       img:"./assets/img/Celeste.jpg"
     },
     {
       id:3,
       categoria:'Categoria do jogo',
-      tituloNoticia:'Nome da noticia',
+      tituloNoticia:'Iconoclasts',
       parteMateria:'parte da materia',
       img:"./assets/img/iconoclasts.jpg"
     },
     {
       id:4,
       categoria:'Categoria do jogo',
-      tituloNoticia:'Nome da noticia',
+      tituloNoticia:'Veja a Nova continuação de Ori',
       parteMateria:'parte da materia',
       img:"./assets/img/oriori.jpg"
     }

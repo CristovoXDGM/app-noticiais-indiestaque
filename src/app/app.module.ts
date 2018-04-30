@@ -15,12 +15,25 @@ import { OpEsPage } from '../pages/opcoes/opcoes';
 import { LoginPage } from '../pages/login/login';
 import { CadastrarPage } from '../pages/cadastrar/cadastrar';
 
-
+//imports externos
+import { Camera } from '@ionic-native/camera';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { PopoverComponent } from '../components/popover/popover';
 import { TerceiraNoticiaaPage } from '../pages/terceira-noticiaa/terceira-noticiaa';
 import { Push  } from '@ionic-native/push';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireModule } from 'angularfire2';
+
+//autenticação do facebook com firebase
+var config = {
+  apiKey: "AIzaSyDWEVZUJYcns52QcxXBaASCBYrVTYHl0Gk",
+  authDomain: "indiestaque.firebaseapp.com",
+  databaseURL: "https://indiestaque.firebaseio.com",
+  projectId: "indiestaque",
+  storageBucket: "indiestaque.appspot.com",
+  messagingSenderId: "1084794536323"
+};
  
 @NgModule({
   declarations: [
@@ -42,7 +55,9 @@ import { Push  } from '@ionic-native/push';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(config )
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -66,7 +81,8 @@ import { Push  } from '@ionic-native/push';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    Push
+    Push,
+    Camera
   ]
 })
 export class AppModule {}
