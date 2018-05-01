@@ -10,7 +10,7 @@ import { TrailersPage } from '../pages/trailers/trailers';
 import { IndiesExclusivosPage } from '../pages/indies-exclusivos/indies-exclusivos';
 import { OpEsPage } from '../pages/opcoes/opcoes';
 
-
+import { AngularFireAuth} from 'angularfire2/auth'
 import { NoticiasPage } from '../pages/noticias/noticias';
 import { LoginPage } from '../pages/login/login';
  
@@ -21,13 +21,14 @@ import { LoginPage } from '../pages/login/login';
   templateUrl: 'app.html'
 })
 export class MyApp {
+
+   
   @ViewChild(Nav) navCtrl: Nav;
     rootPage:any = NoticiasPage;
 
-  constructor( platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+  constructor( platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,private fire:AngularFireAuth) {
     platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
+      
       statusBar.backgroundColorByHexString('#000000');
       splashScreen.hide();
     });
@@ -53,5 +54,8 @@ export class MyApp {
     this.navCtrl.setRoot(OpEsPage);
   }goToLogin(){
     this.navCtrl.push(LoginPage)
+   
   }
+  
+  
 }

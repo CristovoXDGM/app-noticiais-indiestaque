@@ -1,5 +1,5 @@
 import { Camera,CameraOptions } from '@ionic-native/camera';
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavController, ViewController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 

@@ -23,17 +23,11 @@ import { PopoverComponent } from '../components/popover/popover';
 import { TerceiraNoticiaaPage } from '../pages/terceira-noticiaa/terceira-noticiaa';
 import { Push  } from '@ionic-native/push';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-import { AngularFireModule } from 'angularfire2';
+import { AngularFireModule} from 'angularfire2';
+import { FirebaseCredentials } from './app.firebase.provider';
 
 //autenticação do facebook com firebase
-var config = {
-  apiKey: "AIzaSyDWEVZUJYcns52QcxXBaASCBYrVTYHl0Gk",
-  authDomain: "indiestaque.firebaseapp.com",
-  databaseURL: "https://indiestaque.firebaseio.com",
-  projectId: "indiestaque",
-  storageBucket: "indiestaque.appspot.com",
-  messagingSenderId: "1084794536323"
-};
+
  
 @NgModule({
   declarations: [
@@ -57,7 +51,7 @@ var config = {
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireAuthModule,
-    AngularFireModule.initializeApp(config )
+    AngularFireModule.initializeApp(FirebaseCredentials)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -82,7 +76,8 @@ var config = {
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Push,
-    Camera
+    Camera 
+    
   ]
 })
 export class AppModule {}
