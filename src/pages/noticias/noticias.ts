@@ -44,7 +44,7 @@ export class NoticiasPage {
       categoria:'Categoria do jogo',
       tituloNoticia:'Iconoclasts',
       parteMateria:'parte da materia',
-      img:"./assets/img/iconoclasts.jpg"
+      img:" ./assets/img/Iconoclasts.jpg"
     },
     {
       id:4,

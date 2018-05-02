@@ -29,7 +29,7 @@ export class CadastrarPage {
 
   getUser(usuario:usuarios){
 
-    this.userProvider.getALL(1)
+    this.userProvider.getALL(usuario.id)
     .then((result: any[]) => {
       this.usuario = result;
       
@@ -64,15 +64,15 @@ export class CadastrarPage {
       quality: 100,
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE
+      mediaType: this.camera.MediaType.PICTURE,
+      sourceType : this.camera.PictureSourceType.PHOTOLIBRARY
     }
     
     this.camera.getPicture(options).then((imageData) => {
-     // imageData is either a base64 encoded string or a file URI
-     // If it's base64:
+     
      this.myphoto = 'data:image/jpeg;base64,' + imageData;
     }, (err) => {
-     // Handle error
+      
     });
   }
 
