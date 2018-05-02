@@ -34,7 +34,8 @@ import { CreateUserProvider } from '../providers/create-user/create-user';
 import { EditUsersPage } from './../pages/edit-users/edit-users';
 import { BrowserTab } from '@ionic-native/browser-tab';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
-
+import { Deeplinks } from '@ionic-native/deeplinks';
+import { DeepLinkDataProvider } from '../providers/deep-link-data/deep-link-data';
 //autenticação do facebook com firebase
 
  
@@ -93,7 +94,9 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
     DatabaseProvider,
     CreateUserProvider,
     BrowserTab,
-    InAppBrowser
+    InAppBrowser,
+    Deeplinks,
+    DeepLinkDataProvider
     
   ]
 })
