@@ -1,16 +1,20 @@
+
 import { CadastrarPage } from './../cadastrar/cadastrar';
 import { Component } from '@angular/core';
-import { NavController, ViewController } from 'ionic-angular';
+import { NavController, ViewController, NavParams } from 'ionic-angular';
 import firebase from 'firebase';
 import { AngularFireAuth} from 'angularfire2/auth'
- 
+
+
 
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html'
 })
 export class LoginPage {
-   facebookLogged =  
+
+  key:string = 'username';
+   userLogged =  
      {
       logged:false,
       name:'',
@@ -18,8 +22,8 @@ export class LoginPage {
        profilepicture:''
      }
    
-  constructor(public  fire:AngularFireAuth,public navCtrl: NavController, public viewCTRL: ViewController) {
-  
+  constructor(public  fire:AngularFireAuth,public navCtrl: NavController, public viewCTRL: ViewController,params: NavParams) {
+     
     }
     goTocadastrar(){
       this.navCtrl.push(CadastrarPage);
@@ -28,17 +32,37 @@ export class LoginPage {
    logInWithfacebook(){
       this.fire.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
       .then(res =>{
-        //this.navCtrl.setRoot(NoticiasPage);
-        this.facebookLogged.logged=true;
-        this.facebookLogged.name = res.user.displayName;
-        this.facebookLogged.email = res.user.email;
-        this.facebookLogged.profilepicture = res.user.photoURL;
+        this.userLogged.logged=true;
+        this.userLogged.name = res.user.displayName;
+        this.userLogged.email = res.user.email;
+        this.userLogged.profilepicture = res.user.photoURL;
         console.log(res);
       })
     }
-   logOutofFacebook(){
+   logOut(){
       this.fire.auth.signOut();
-      this.facebookLogged.logged  = false;
+      this.userLogged.logged  = false;
     }
-  
+
+   logInWithGoogle(){
+    this.fire.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
+    .then(res =>{
+      this.userLogged.logged=true;
+      this.userLogged.name = res.user.displayName;
+      this.userLogged.email = res.user.email;
+      this.userLogged.profilepicture = res.user.photoURL;
+      console.log(res);
+    })
+   }
+   
+   logInWithTwitter(){
+    this.fire.auth.signInWithPopup(new firebase.auth.TwitterAuthProvider())
+    .then(res =>{
+      this.userLogged.logged=true;
+      this.userLogged.name = res.user.displayName;
+      this.userLogged.email = res.user.email;
+      this.userLogged.profilepicture = res.user.photoURL;
+      console.log(res);
+    })
+   }
 }

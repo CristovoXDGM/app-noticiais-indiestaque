@@ -63,8 +63,7 @@ export class NoticiasPage {
     let popover = this.popoverCtrl.create(PopoverComponent);
 
     popover.present();
-   
-    
+     
 
   }
 

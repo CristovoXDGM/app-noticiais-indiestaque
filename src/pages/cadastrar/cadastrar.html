@@ -39,32 +39,17 @@
 <ion-item color="Background" >
   
 </ion-item>
-  <ion-item color="Background"  >
-    <ion-label stacked color="light" #fullName>Nome Completo</ion-label>
-    <ion-input type="text"></ion-input>
-  </ion-item>
-    
-  <ion-item color="Background">
-      <ion-label stacked color="light" #user>Usuário</ion-label>
-      <ion-input type="text"></ion-input>
-  </ion-item>
 
-  <ion-item color="Background">
-      <ion-label  stacked color="light" #password>Senha</ion-label>
-      <ion-input type="password"></ion-input>
-  </ion-item>
+</ion-row>
 
-  <ion-item color="Background">
-      <ion-label stacked color="light" #confirmPassword>Repetir senha</ion-label>
-      <ion-input type="password"></ion-input>
-  </ion-item>
-</ion-row>
 <ion-row>
-  <button ion-button block>Cadastrar</button>
+  <button ion-button block  (click)="addtUser()">Cadastrar</button>
 </ion-row>
+
 <ion-row>
-  <button ion-button block>Verificar usuario</button>
+  <button ion-button block (click)="getUser()">Verificar usuario</button>
 </ion-row>
+
 </ion-grid>
 
 </ion-content>

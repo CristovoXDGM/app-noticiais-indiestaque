@@ -23,12 +23,12 @@
       
         <ion-row>
 
-          <ion-item color="Background" *ngIf="!facebookLogged.logged">
+          <ion-item color="Background" *ngIf="!userLogged.logged">
             <ion-label stacked color="light" >Usuário ou E-mail</ion-label>
             <ion-input large type = "text" color="light"  ></ion-input>
           </ion-item>
 
-        <ion-item color="Background" *ngIf="!facebookLogged.logged">
+        <ion-item color="Background" *ngIf="!userLogged.logged">
           <ion-label stacked color="light" >Senha</ion-label>
           <ion-input large type = "password" color="light"  ></ion-input>
         </ion-item>
@@ -36,45 +36,45 @@
       </ion-row>
 
       <ion-row>
-        <ion-card *ngIf="facebookLogged.logged" padding> 
-            <img width="50" [src]="facebookLogged.profilepicture" *ngIf="facebookLogged.logged" />
-            <ion-card-title color="dark" *ngIf="facebookLogged.logged">{{facebookLogged.name}}</ion-card-title>
-            <ion-label color="dark" *ngIf="facebookLogged.logged">{{facebookLogged.email}}</ion-label>
+        <ion-card *ngIf="userLogged.logged" padding> 
+            <img width="50" [src]="userLogged.profilepicture" *ngIf="userLogged.logged" />
+            <ion-card-title color="dark" *ngIf="userLogged.logged">{{userLogged.name}}</ion-card-title>
+            <ion-label color="dark" *ngIf="userLogged.logged">{{userLogged.email}}</ion-label>
         </ion-card>
         <ion-col  > 
-          <button ion-button round full *ngIf="!facebookLogged.logged">Entrar</button>
+          <button ion-button round full *ngIf="!userLogged.logged">Entrar</button>
 
              
-          <button ion-button round full *ngIf="facebookLogged.logged" (click)="logOutofFacebook()">Sair</button>
+          <button ion-button round full *ngIf="userLogged.logged" (click)="logOut()">Sair</button>
 
         </ion-col>
       </ion-row>
         <ion-row>
           <ion-col>
-              <a href="#"  *ngIf="!facebookLogged.logged">Esqueceu a senha ?</a>
+              <a href="#"  *ngIf="!userLogged.logged">Esqueceu a senha ?</a>
           </ion-col>
           <ion-col>
-              <a href="#" (click)="goTocadastrar()" *ngIf="!facebookLogged.logged">Cadastrar-se</a>
+              <a href="#" (click)="goTocadastrar()" *ngIf="!userLogged.logged">Cadastrar-se</a>
           </ion-col>
         </ion-row>
         <ion-row>
-          <ion-label color="light" *ngIf="!facebookLogged.logged" >Entrar também com:</ion-label>
+          <ion-label color="light" *ngIf="!userLogged.logged" >Entrar também com:</ion-label>
            
         </ion-row>
 
         <ion-row>
           <ion-col>
-              <button class="twitter" color="light" *ngIf="!facebookLogged.logged">
+              <button class="twitter" color="light" *ngIf="!userLogged.logged" (click)="logInWithTwitter()">
                 <ion-icon  color="light" name="logo-twitter"></ion-icon>
               </button>
           </ion-col>
           <ion-col>
-              <button class="facebook" ion-button color="light" (click)="logInWithfacebook()" *ngIf="!facebookLogged.logged">
+              <button class="facebook" ion-button color="light" (click)="logInWithfacebook()" *ngIf="!userLogged.logged">
                 <ion-icon  color="light" name="logo-facebook"></ion-icon>
               </button>
           </ion-col>
           <ion-col>
-              <button class="gmail" ion-button color="light" *ngIf="!facebookLogged.logged">
+              <button class="gmail" ion-button color="light" *ngIf="!userLogged.logged" (click)="logInWithGoogle()">
                 <ion-icon color="light" name="logo-google"></ion-icon>
               </button>
           </ion-col>

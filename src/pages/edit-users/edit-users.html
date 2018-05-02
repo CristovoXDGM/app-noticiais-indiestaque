@@ -1,0 +1,35 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>editUsers</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list>
+
+      <ion-item>
+        <ion-label stacked>Nome completo</ion-label>
+        <ion-input type="text" name="nome" [(ngModel)]="model.nome"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>usuario</ion-label>
+        <ion-input type="text" name="price" [(ngModel)]="model.usuario"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>senha</ion-label>
+        <ion-input type="password" name="senha" [(ngModel)]="model.senha"></ion-input>
+      </ion-item>
+
+    </ion-list>
+
+    <button ion-button block (click)="save()">Salvar</button>
+
+
+</ion-content>

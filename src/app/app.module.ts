@@ -1,3 +1,4 @@
+
 import { QuartaNoticiaaPage } from './../pages/quarta-noticiaa/quarta-noticiaa';
 import { SegundaNoticiaaPage } from './../pages/segunda-noticiaa/segunda-noticiaa';
 import { PrimeiraNoticiaPage } from './../pages/primeira-noticia/primeira-noticia';
@@ -16,6 +17,7 @@ import { LoginPage } from '../pages/login/login';
 import { CadastrarPage } from '../pages/cadastrar/cadastrar';
 
 //imports externos
+
 import { Camera } from '@ionic-native/camera';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -25,7 +27,11 @@ import { Push  } from '@ionic-native/push';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireModule} from 'angularfire2';
 import { FirebaseCredentials } from './app.firebase.provider';
-
+import { IonicStorageModule } from '@ionic/storage';
+import { SQLite } from '@ionic-native/sqlite';
+import { DatabaseProvider } from '../providers/database/database';
+import { CreateUserProvider } from '../providers/create-user/create-user';
+import { EditUsersPage } from './../pages/edit-users/edit-users';
 //autenticação do facebook com firebase
 
  
@@ -44,14 +50,16 @@ import { FirebaseCredentials } from './app.firebase.provider';
     PrimeiraNoticiaPage,
     SegundaNoticiaaPage,
     TerceiraNoticiaaPage,
-    QuartaNoticiaaPage
+    QuartaNoticiaaPage,
+    EditUsersPage
      
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireAuthModule,
-    AngularFireModule.initializeApp(FirebaseCredentials)
+    AngularFireModule.initializeApp(FirebaseCredentials),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -68,7 +76,8 @@ import { FirebaseCredentials } from './app.firebase.provider';
     PrimeiraNoticiaPage,
     SegundaNoticiaaPage,
     TerceiraNoticiaaPage,
-    QuartaNoticiaaPage
+    QuartaNoticiaaPage,
+    EditUsersPage
      
   ],
   providers: [
@@ -76,7 +85,10 @@ import { FirebaseCredentials } from './app.firebase.provider';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Push,
-    Camera 
+    Camera,
+    SQLite,
+    DatabaseProvider,
+    CreateUserProvider 
     
   ]
 })
