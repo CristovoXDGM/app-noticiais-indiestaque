@@ -31,7 +31,9 @@ export class NotificaEsPage {
        // to initialize push notifications
        
        const options: PushOptions = {
-          android: {},
+          android: {
+            senderID:'1084794536323'
+          },
           ios: {
               alert: 'true',
               badge: true,
