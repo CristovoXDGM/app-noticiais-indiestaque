@@ -32,6 +32,9 @@ import { SQLite } from '@ionic-native/sqlite';
 import { DatabaseProvider } from '../providers/database/database';
 import { CreateUserProvider } from '../providers/create-user/create-user';
 import { EditUsersPage } from './../pages/edit-users/edit-users';
+import { BrowserTab } from '@ionic-native/browser-tab';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+
 //autenticação do facebook com firebase
 
  
@@ -88,7 +91,9 @@ import { EditUsersPage } from './../pages/edit-users/edit-users';
     Camera,
     SQLite,
     DatabaseProvider,
-    CreateUserProvider 
+    CreateUserProvider,
+    BrowserTab,
+    InAppBrowser
     
   ]
 })

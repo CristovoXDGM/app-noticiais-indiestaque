@@ -30,7 +30,7 @@ export class LoginPage {
     }
 
    logInWithfacebook(){
-      this.fire.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
+      this.fire.auth.signInWithRedirect(new firebase.auth.FacebookAuthProvider())
       .then(res =>{
         this.userLogged.logged=true;
         this.userLogged.name = res.user.displayName;
@@ -45,7 +45,7 @@ export class LoginPage {
     }
 
    logInWithGoogle(){
-    this.fire.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
+    this.fire.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider())
     .then(res =>{
       this.userLogged.logged=true;
       this.userLogged.name = res.user.displayName;
@@ -56,7 +56,7 @@ export class LoginPage {
    }
    
    logInWithTwitter(){
-    this.fire.auth.signInWithPopup(new firebase.auth.TwitterAuthProvider())
+    this.fire.auth.signInWithRedirect(new firebase.auth.TwitterAuthProvider())
     .then(res =>{
       this.userLogged.logged=true;
       this.userLogged.name = res.user.displayName;
