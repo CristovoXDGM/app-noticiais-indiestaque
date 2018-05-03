@@ -28,11 +28,6 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireModule} from 'angularfire2';
 import { FirebaseCredentials } from './app.firebase.provider';
 import { IonicStorageModule } from '@ionic/storage';
-import { SQLite } from '@ionic-native/sqlite';
- 
- 
-import { BrowserTab } from '@ionic-native/browser-tab';
-import { InAppBrowser } from '@ionic-native/in-app-browser';
  
  
 //autenticação do facebook com firebase
@@ -87,8 +82,6 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Push,
     Camera, 
-    BrowserTab,
-    InAppBrowser 
     
     
   ]
