@@ -29,13 +29,12 @@ import { AngularFireModule} from 'angularfire2';
 import { FirebaseCredentials } from './app.firebase.provider';
 import { IonicStorageModule } from '@ionic/storage';
 import { SQLite } from '@ionic-native/sqlite';
-import { DatabaseProvider } from '../providers/database/database';
-import { CreateUserProvider } from '../providers/create-user/create-user';
-import { EditUsersPage } from './../pages/edit-users/edit-users';
+ 
+ 
 import { BrowserTab } from '@ionic-native/browser-tab';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
-import { Deeplinks } from '@ionic-native/deeplinks';
-import { DeepLinkDataProvider } from '../providers/deep-link-data/deep-link-data';
+ 
+ 
 //autenticação do facebook com firebase
 
  
@@ -54,8 +53,7 @@ import { DeepLinkDataProvider } from '../providers/deep-link-data/deep-link-data
     PrimeiraNoticiaPage,
     SegundaNoticiaaPage,
     TerceiraNoticiaaPage,
-    QuartaNoticiaaPage,
-    EditUsersPage
+    QuartaNoticiaaPage 
      
   ],
   imports: [
@@ -80,8 +78,7 @@ import { DeepLinkDataProvider } from '../providers/deep-link-data/deep-link-data
     PrimeiraNoticiaPage,
     SegundaNoticiaaPage,
     TerceiraNoticiaaPage,
-    QuartaNoticiaaPage,
-    EditUsersPage
+    QuartaNoticiaaPage 
      
   ],
   providers: [
@@ -89,14 +86,10 @@ import { DeepLinkDataProvider } from '../providers/deep-link-data/deep-link-data
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Push,
-    Camera,
-    SQLite,
-    DatabaseProvider,
-    CreateUserProvider,
+    Camera, 
     BrowserTab,
-    InAppBrowser,
-    Deeplinks,
-    DeepLinkDataProvider
+    InAppBrowser 
+    
     
   ]
 })

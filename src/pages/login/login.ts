@@ -6,7 +6,6 @@ import firebase from 'firebase';
 import { AngularFireAuth} from 'angularfire2/auth'
 
 
-
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html'
