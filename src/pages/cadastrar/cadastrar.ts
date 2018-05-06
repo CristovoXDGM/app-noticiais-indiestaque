@@ -1,7 +1,10 @@
  
+ 
 import { Camera,CameraOptions } from '@ionic-native/camera';
-import { Component } from '@angular/core';
-import { NavController, ViewController,AlertController  } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { NavController, ViewController, AlertController, NavParams } from 'ionic-angular';
+ import { Account } from '../../providers/auth/auth';
+import {AngularFireAuth} from 'angularfire2/auth';
 
 @Component({
   selector: 'page-cadastrar',
@@ -10,16 +13,51 @@ import { NavController, ViewController,AlertController  } from 'ionic-angular';
 export class CadastrarPage {
 
   myphoto:any;
+ //model:Account;
+  
+ @ViewChild('email') email;
+ @ViewChild('password') password;
+ 
 
   constructor(
     public navCtrl: NavController, 
     public viewCtrl:ViewController,
     private camera: Camera,
-    public alertCrl:AlertController 
+    public alertCrl:AlertController,
+    public navParams:NavParams, 
+    private fire: AngularFireAuth 
   ) 
   {
-
+    
   }
+
+  registerUser(){
+    this.fire.auth.createUserWithEmailAndPassword(this.email.value,this.password.value)
+    .then(data =>{
+      
+      let create = this.alertCrl.create({
+
+        title:'Usuário cadastrado',
+        buttons:[{
+          text:'ok',
+          handler:data=>{
+            
+            this.viewCtrl.dismiss();
+          }
+        }]
+
+      });
+      create.present();
+
+    })
+    .catch(error=>{
+      console.log('got an error',error);
+    });
+  }
+ 
+
+
+
   takePhoto(){
     const options: CameraOptions = {
       correctOrientation: true,

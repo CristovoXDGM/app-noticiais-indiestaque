@@ -10,16 +10,20 @@ export class IndiesExclusivosPage {
 
   plataforma = [
     {
-      nome:'Xbox'
+      nome:'Xbox',
+      img:''
     },
     {
-      nome:'Playstation'
+      nome:'Playstation',
+      img:''
     },
     {
-      nome:'Nintendo'
+      nome:'Nintendo',
+      img:''
     },
     {
-      nome:'PC'
+      nome:'PC',
+      img:''
     }
   ];
 

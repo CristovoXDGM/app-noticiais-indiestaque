@@ -24,13 +24,13 @@
         <ion-row>
 
           <ion-item color="Background" *ngIf="!userLogged.logged">
-            <ion-label stacked color="light" >Usuário ou E-mail</ion-label>
-            <ion-input large type = "text" color="light"  ></ion-input>
+            <ion-label stacked color="light" >E-mail</ion-label>
+            <ion-input large type = "text" color="light"  #email></ion-input>
           </ion-item>
 
         <ion-item color="Background" *ngIf="!userLogged.logged">
           <ion-label stacked color="light" >Senha</ion-label>
-          <ion-input large type = "password" color="light"  ></ion-input>
+          <ion-input large type = "password" color="light"   #password></ion-input>
         </ion-item>
 
       </ion-row>
@@ -42,7 +42,7 @@
             <ion-label color="dark" *ngIf="userLogged.logged">{{userLogged.email}}</ion-label>
         </ion-card>
         <ion-col  > 
-          <button ion-button round full *ngIf="!userLogged.logged">Entrar</button>
+          <button ion-button round full *ngIf="!userLogged.logged" (click)="signIn()">Entrar</button>
 
              
           <button ion-button round full *ngIf="userLogged.logged" (click)="logOut()">Sair</button>

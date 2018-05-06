@@ -8,6 +8,9 @@ import { ModalController } from 'ionic-angular';
 import { PrimeiraNoticiaPage } from './../primeira-noticia/primeira-noticia';
 import { SegundaNoticiaaPage } from '../segunda-noticiaa/segunda-noticiaa';
 import { TerceiraNoticiaaPage } from '../terceira-noticiaa/terceira-noticiaa';
+import { Storage } from '@ionic/storage';
+
+
 
 @Component({
   selector: 'page-noticias',
@@ -56,7 +59,14 @@ export class NoticiasPage {
   ];
 
 
-  constructor(public navCtrl: NavController, public popoverCtrl : PopoverController, public alertCtrl: AlertController, public modalCtrl: ModalController) {
+  constructor(
+    public navCtrl: NavController,
+     public popoverCtrl : PopoverController,
+      public alertCtrl: AlertController,
+       public modalCtrl: ModalController,
+       public storage:Storage
+      ) {
+        
   }
 
   presentPopover() {

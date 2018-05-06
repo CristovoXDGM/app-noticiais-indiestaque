@@ -28,6 +28,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireModule} from 'angularfire2';
 import { FirebaseCredentials } from './app.firebase.provider';
 import { IonicStorageModule } from '@ionic/storage';
+import { AuthProvider } from '../providers/auth/auth';
  
  
 //autenticação do facebook com firebase
@@ -56,7 +57,7 @@ import { IonicStorageModule } from '@ionic/storage';
     IonicModule.forRoot(MyApp),
     AngularFireAuthModule,
     AngularFireModule.initializeApp(FirebaseCredentials),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot({name:'__mydb'})
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -81,7 +82,8 @@ import { IonicStorageModule } from '@ionic/storage';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Push,
-    Camera, 
+    Camera,
+    AuthProvider
     
     
   ]

@@ -36,18 +36,25 @@
   </ion-col>
    
 </ion-item>
-<ion-item color="Background" >
-  
-</ion-item>
+
+  <ion-item color="Background" >
+    <ion-label stacked>E-mail</ion-label>
+    <ion-input type="email"   #email></ion-input>
+  </ion-item>
+
+  <ion-item color="Background" >
+    <ion-label stacked>senha</ion-label>
+    <ion-input type="password"   #password></ion-input>
+  </ion-item>
 
 </ion-row>
 
 <ion-row>
-  <button ion-button block  (click)="addtUser()">Cadastrar</button>
+  <button ion-button block (click)="registerUser()">Cadastrar</button>
 </ion-row>
 
 <ion-row>
-  <button ion-button block (click)="getUser()">Verificar usuario</button>
+  <button ion-button block >Verificar usuario</button>
 </ion-row>
 
 </ion-grid>
