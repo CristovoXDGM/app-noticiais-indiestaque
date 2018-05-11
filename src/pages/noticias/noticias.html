@@ -14,10 +14,16 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding id="page1" >
-
+    <ion-card *ngFor='let item of noticiasRef$ | async'>
+      
+        <ion-card-header>
+          <p>{{item|json}}</p>
+        </ion-card-header>
+    
+      </ion-card>
   <ion-row >
       
-      <ion-card *ngFor="let noticia of noticia">
+      <ion-card *ngFor="let noticia of not">
           <ion-card-header  >
               <p>{{noticia.categoria}}</p>
               <h2>{{noticia.tituloNoticia}}</h2>

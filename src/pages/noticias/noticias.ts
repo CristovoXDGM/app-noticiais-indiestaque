@@ -9,7 +9,9 @@ import { PrimeiraNoticiaPage } from './../primeira-noticia/primeira-noticia';
 import { SegundaNoticiaaPage } from '../segunda-noticiaa/segunda-noticiaa';
 import { TerceiraNoticiaaPage } from '../terceira-noticiaa/terceira-noticiaa';
 import { Storage } from '@ionic/storage';
-//import {AngularFireDatabase} from 'angularfire2/database';
+import { CadastrarNoticia } from '../../models/cadastrar-noticia/cadastrar-noticia.interface';
+import { AngularFireDatabase,AngularFireList } from'angularfire2/database';
+import { Observable } from 'rxjs/Observable';
 
 
 @Component({
@@ -17,8 +19,10 @@ import { Storage } from '@ionic/storage';
   templateUrl: 'noticias.html'
 })
 export class NoticiasPage {
-//Array com páginas das noticias
-  notcias=[
+
+  noticiasRef$:Observable<any[] >
+//Array com páginas das noticias 
+notcias=[
     PrimeiraNoticiaPage,
     SegundaNoticiaaPage,
     TerceiraNoticiaaPage,
@@ -26,7 +30,7 @@ export class NoticiasPage {
   ];
 //implementar Firebase nessa parte
 //nova mundaça teste
-  noticia = [
+  not = [
     {
       id:1,
       categoria:'Categoria do jogo',
@@ -58,18 +62,20 @@ export class NoticiasPage {
     }
   ];
 
-  arrData = [];
+  
 
   constructor(
-    public navCtrl: NavController,
-     public popoverCtrl : PopoverController,
+      public navCtrl: NavController,
+      public popoverCtrl : PopoverController,
       public alertCtrl: AlertController,
-       public modalCtrl: ModalController,
-       public storage:Storage,
-      // private db:AngularFireDatabase
+      public modalCtrl: ModalController,
+      public storage:Storage,
+      private db:AngularFireDatabase
       ) 
       {
-        /// LEMBRAR DE TERMINAR DE IMPLEMENTAR O FIREBASE
+      
+        this.noticiasRef$ = db.list('NoticiasPage').valueChanges();
+        
       }
 
   presentPopover() {
@@ -82,9 +88,9 @@ export class NoticiasPage {
 
   presentModal(id) {
     //Estrutura de repetição para pegar o id da noticia e verificar se está igual a posição da página desejada
-    for (let i = 0; i < this.noticia.length; i++) {
+    for (let i = 0; i < this.not.length; i++) {
       
-      if(id == this.noticia[i].id){
+      if(id == this.not[i].id){
           let modal = this.modalCtrl.create(this.notcias[i]);
           modal.present();
       }
