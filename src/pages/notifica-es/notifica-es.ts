@@ -13,13 +13,14 @@ export class NotificaEsPage {
   .then((res: any) => {
 
     if (res.isEnabled) {
-      console.log('We have permission to send push notifications');
+      alert('We have permission to send push notifications');
+
 
       this.push.createChannel({
         id: "testchannel1",
         description: "My first test channel",
         // The importance property goes from 1 = Lowest, 2 = Low, 3 = Normal, 4 = High and 5 = Highest.
-        importance: 3
+        importance: 5
        }).then(() => console.log('Channel created'));
        
        // Delete a channel (Android O and above)
@@ -56,7 +57,7 @@ export class NotificaEsPage {
        pushObject.on('error').subscribe(error => console.error('Error with Push plugin', error));
 
     } else {
-      console.log('We do not have permission to send push notifications');
+      alert('We do not have permission to send push notifications');
        }
 
     });

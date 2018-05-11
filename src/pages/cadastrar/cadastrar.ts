@@ -3,7 +3,7 @@
 import { Camera,CameraOptions } from '@ionic-native/camera';
 import { Component, ViewChild } from '@angular/core';
 import { NavController, ViewController, AlertController, NavParams } from 'ionic-angular';
- import { Account } from '../../providers/auth/auth';
+ //import { Account } from '../../providers/auth/auth';
 import {AngularFireAuth} from 'angularfire2/auth';
 
 @Component({
@@ -51,7 +51,16 @@ export class CadastrarPage {
 
     })
     .catch(error=>{
-      console.log('got an error',error);
+      let wrong = this.alertCrl.create({
+        title:'Error :'+error,
+        buttons:[{
+          text:'ok',
+          handler:data=>{
+            
+            wrong.dismiss();
+          }
+        }]
+      });
     });
   }
  

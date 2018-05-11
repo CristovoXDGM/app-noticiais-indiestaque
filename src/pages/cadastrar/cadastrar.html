@@ -18,17 +18,17 @@
 <ion-grid >
   <ion-row >
     <ion-item  color="Background" class="page-cadastrar">
-        <img src="{{myphoto}}" />
+        <img  src="{{myphoto}}" />
   </ion-item>
   <ion-item color="Background" >
    
-    <ion-col>
+    <ion-col col-12>
      <button ion-button icon-start (click)="getPhoto()">
         <ion-icon  name="cloud-upload"></ion-icon>
         Enviar Foto 
     </button>
-  </ion-col>
-  <ion-col>
+  </ion-col >
+  <ion-col col-12>
     <button ion-button icon-start (click)="takePhoto()">
         <ion-icon  name="camera"></ion-icon>
         <p>Tirar foto</p>
@@ -38,23 +38,19 @@
 </ion-item>
 
   <ion-item color="Background" >
-    <ion-label stacked>E-mail</ion-label>
+    <ion-label floating>E-mail</ion-label>
     <ion-input type="email"   #email></ion-input>
   </ion-item>
 
   <ion-item color="Background" >
-    <ion-label stacked>senha</ion-label>
+    <ion-label floating>senha</ion-label>
     <ion-input type="password"   #password></ion-input>
   </ion-item>
 
 </ion-row>
 
 <ion-row>
-  <button ion-button block (click)="registerUser()">Cadastrar</button>
-</ion-row>
-
-<ion-row>
-  <button ion-button block >Verificar usuario</button>
+  <button ion-button block round (click)="registerUser()">Cadastrar</button>
 </ion-row>
 
 </ion-grid>

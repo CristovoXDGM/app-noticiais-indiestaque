@@ -10,6 +10,7 @@ import { OpEsPage } from '../pages/opcoes/opcoes';
 
 import { NoticiasPage } from '../pages/noticias/noticias';
 import { LoginPage } from '../pages/login/login';
+import { NotificaEsPage } from '../pages/notifica-es/notifica-es';
  
 
 @Component({
@@ -50,8 +51,10 @@ export class MyApp {
     if (!params) params = {};
     this.navCtrl.setRoot(OpEsPage);
   }goToLogin(){
-    this.navCtrl.push(LoginPage)
+    this.navCtrl.setRoot(LoginPage)
    
+  }gotTonotification(){
+    this.navCtrl.push(NotificaEsPage)
   }
   
   

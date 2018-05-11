@@ -1,6 +1,6 @@
   <ion-menu [content]="mainContent" >
     <ion-content id="side-menu21" style="background-color: #087F5B">
-      <ion-list id="menu-list1" color = "Navbar">
+      <ion-list id="menu-list1" color = "Navbar" no-lines >
         <ion-item-sliding >
           <ion-grid ion-item color="Navbar" id="menu-list-item4" >
               <h2 >
@@ -19,28 +19,37 @@
           </ion-row>
                   </ion-grid>
         </ion-item-sliding>
-        <button  ion-item color="SideMenu"  menuClose="" on-click="goToNoticias()" id="menu-list-item1" >
-           Noticias
-        </button>
-        <button ion-item color="SideMenu" menuClose="" on-click="goToIndiesDoMomento()" id="menu-list-item2">
-          indies do momento
-        </button>
-        <button ion-item color="SideMenu" menuClose="" on-click="goToTrailers()" id="menu-list-item3">
-          Trailers
-        </button>
-        <button ion-item color="SideMenu" menuClose="" on-click="goToIndiesExclusivos()" id="menu-list-item5">
-          indies excluisivos
-        </button>
-        <button ion-item color="SideMenu" id="menu-list-item6">
-          Notificações
-        </button>
+          <ion-buttons >
+                <button  ion-item color = "Navbar"  menuClose="" on-click="goToNoticias()" id="menu-list-item1" >
+                    <ion-icon name="md-funnel"></ion-icon> 
+                    Noticias
+                </button>
+                <button ion-item color = "Navbar" menuClose="" on-click="goToIndiesDoMomento()" id="menu-list-item2">
+                  <ion-icon name="md-game-controller-a" ></ion-icon>
+                  Indies do momento
+                </button>
+                <button ion-item color = "Navbar" menuClose="" on-click="goToTrailers()" id="menu-list-item3">
+                    <ion-icon name="logo-youtube"></ion-icon>
+                  Trailers
+                </button>
+                <button ion-item color = "Navbar" menuClose="" on-click="goToIndiesExclusivos()" id="menu-list-item5">
+                    <ion-icon name="star"></ion-icon>
+                  indies excluisivos
+                </button>
+                <button ion-item menuClose=""  color = "Navbar" id="menu-list-item6" (click) ="gotTonotification()">
+                    <ion-icon name="notifications"></ion-icon>
+                  Notificações
+                </button>
+                
+                <button ion-item color = "Navbar" menuClose="" on-click="goToOpEs()" id="menu-list-item7">
+                    <ion-icon name="hammer"></ion-icon>
+                  Opções
+                </button>
+        </ion-buttons>
       </ion-list>
-      <div class="spacer" style="width:268px;height:10px;" id="menu-spacer1"></div>
-      <ion-list id="menu-list2">
-        <button ion-item color="SideMenu" menuClose="" on-click="goToOpEs()" id="menu-list-item7">
-          Opções
-        </button>
-      </ion-list>
+       
+      
+       
     </ion-content>
   </ion-menu>
   <ion-nav #mainContent [root]="rootPage" ></ion-nav>

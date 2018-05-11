@@ -24,12 +24,12 @@
         <ion-row>
 
           <ion-item color="Background" *ngIf="!userLogged.logged">
-            <ion-label stacked color="light" >E-mail</ion-label>
+            <ion-label floating color="light" >E-mail</ion-label>
             <ion-input large type = "text" color="light"  #email></ion-input>
           </ion-item>
 
         <ion-item color="Background" *ngIf="!userLogged.logged">
-          <ion-label stacked color="light" >Senha</ion-label>
+          <ion-label floating color="light" >Senha</ion-label>
           <ion-input large type = "password" color="light"   #password></ion-input>
         </ion-item>
 
@@ -64,17 +64,17 @@
 
         <ion-row>
           <ion-col>
-              <button class="twitter" color="light" *ngIf="!userLogged.logged" (click)="logInWithTwitter()">
+              <button class="twitter" color="light" *ngIf="!userLogged.logged" (click)="logIn('twitter')">
                 <ion-icon  color="light" name="logo-twitter"></ion-icon>
               </button>
           </ion-col>
           <ion-col>
-              <button class="facebook" ion-button color="light" (click)="logInWithfacebook()" *ngIf="!userLogged.logged">
+              <button class="facebook" ion-button color="light" (click)="logIn('facebook')" *ngIf="!userLogged.logged">
                 <ion-icon  color="light" name="logo-facebook"></ion-icon>
               </button>
           </ion-col>
           <ion-col>
-              <button class="gmail" ion-button color="light" *ngIf="!userLogged.logged" (click)="logInWithGoogle()">
+              <button class="gmail" ion-button color="light" *ngIf="!userLogged.logged" (click)="logIn('google')">
                 <ion-icon color="light" name="logo-google"></ion-icon>
               </button>
           </ion-col>

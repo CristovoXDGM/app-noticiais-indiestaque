@@ -9,7 +9,7 @@ import { PrimeiraNoticiaPage } from './../primeira-noticia/primeira-noticia';
 import { SegundaNoticiaaPage } from '../segunda-noticiaa/segunda-noticiaa';
 import { TerceiraNoticiaaPage } from '../terceira-noticiaa/terceira-noticiaa';
 import { Storage } from '@ionic/storage';
-
+//import {AngularFireDatabase} from 'angularfire2/database';
 
 
 @Component({
@@ -58,16 +58,19 @@ export class NoticiasPage {
     }
   ];
 
+  arrData = [];
 
   constructor(
     public navCtrl: NavController,
      public popoverCtrl : PopoverController,
       public alertCtrl: AlertController,
        public modalCtrl: ModalController,
-       public storage:Storage
-      ) {
-        
-  }
+       public storage:Storage,
+      // private db:AngularFireDatabase
+      ) 
+      {
+        /// LEMBRAR DE TERMINAR DE IMPLEMENTAR O FIREBASE
+      }
 
   presentPopover() {
     let popover = this.popoverCtrl.create(PopoverComponent);

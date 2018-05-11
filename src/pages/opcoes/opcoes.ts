@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { CadastrarNoticiaPage } from '../cadastrar-noticia/cadastrar-noticia';
 
 @Component({
   selector: 'page-opcoes',
@@ -13,6 +14,8 @@ export class OpEsPage {
   }
 
 
-  
+  goToCadastrarNoticia(){
+    this.navCtrl.push(CadastrarNoticiaPage);
+  }
   
 }

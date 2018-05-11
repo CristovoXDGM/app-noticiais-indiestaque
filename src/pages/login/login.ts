@@ -1,11 +1,12 @@
 import { Storage } from '@ionic/storage';
 
 import { CadastrarPage } from './../cadastrar/cadastrar';
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild,  ChangeDetectorRef } from '@angular/core';
 import { NavController, ViewController, NavParams, AlertController } from 'ionic-angular';
 import firebase from 'firebase';
 import { AngularFireAuth} from 'angularfire2/auth'
 import { NoticiasPage } from '../noticias/noticias';
+
 
 
 @Component({
@@ -33,6 +34,7 @@ export class LoginPage {
     public viewCTRL: ViewController,
     params: NavParams,
     public alertCtrl:AlertController,
+    public ref:ChangeDetectorRef
   ) {
       
     }
@@ -66,18 +68,44 @@ export class LoginPage {
       })
     }
 
-   logInWithfacebook(){
-      this.fire.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
-      .then(res =>{
+   logIn(provider){
+
+    let sigInProvider = null;
+    switch (provider) {
+      case "facebook":
+      sigInProvider = new firebase.auth.FacebookAuthProvider();
+        break;
+      case "twitter":
+      sigInProvider = new firebase.auth.TwitterAuthProvider();
+       break;
+      case "google":
+      sigInProvider = new firebase.auth.GoogleAuthProvider();
+       
+     }
+     this.fire.auth.signInWithRedirect(sigInProvider)
+      .then(() =>{
+        this.fire.auth.getRedirectResult().then(res => {
+        
+        this.storage.set('provider',provider);
         this.userLogged.logged=true;
         this.userLogged.name = res.user.displayName;
         this.userLogged.email = res.user.email;
         this.userLogged.profilepicture = res.user.photoURL;
+        this.ref.detectChanges();
         console.log(res);
         
+        });
          
       })
-    }
+      .catch(error =>{
+        let erro = this.alertCtrl.create({
+          message:error
+        });
+        erro.present();
+        
+      })
+   }
+
    logOut(){
       this.fire.auth.signOut()
       .then(()=>{
@@ -95,25 +123,6 @@ export class LoginPage {
       
     }
 
-   logInWithGoogle(){
-    this.fire.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
-    .then(res =>{
-      this.userLogged.logged=true;
-      this.userLogged.name = res.user.displayName;
-      this.userLogged.email = res.user.email;
-      this.userLogged.profilepicture = res.user.photoURL;
-      console.log(res);
-    })
-   }
    
-   logInWithTwitter(){
-    this.fire.auth.signInWithPopup(new firebase.auth.TwitterAuthProvider())
-    .then(res =>{
-      this.userLogged.logged=true;
-      this.userLogged.name = res.user.displayName;
-      this.userLogged.email = res.user.email;
-      this.userLogged.profilepicture = res.user.photoURL;
-      console.log(res);
-    })
-   }
+  
 }

@@ -26,9 +26,11 @@ import { TerceiraNoticiaaPage } from '../pages/terceira-noticiaa/terceira-notici
 import { Push  } from '@ionic-native/push';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireModule} from 'angularfire2';
+import {AngularFireDatabaseModule}from 'angularfire2/database'
 import { FirebaseCredentials } from './app.firebase.provider';
 import { IonicStorageModule } from '@ionic/storage';
 import { AuthProvider } from '../providers/auth/auth';
+import { CadastrarNoticiaPage } from '../pages/cadastrar-noticia/cadastrar-noticia';
  
  
 //autenticação do facebook com firebase
@@ -49,7 +51,8 @@ import { AuthProvider } from '../providers/auth/auth';
     PrimeiraNoticiaPage,
     SegundaNoticiaaPage,
     TerceiraNoticiaaPage,
-    QuartaNoticiaaPage 
+    QuartaNoticiaaPage,
+    CadastrarNoticiaPage
      
   ],
   imports: [
@@ -57,7 +60,8 @@ import { AuthProvider } from '../providers/auth/auth';
     IonicModule.forRoot(MyApp),
     AngularFireAuthModule,
     AngularFireModule.initializeApp(FirebaseCredentials),
-    IonicStorageModule.forRoot({name:'__mydb'})
+    IonicStorageModule.forRoot({name:'__mydb'}),
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -74,7 +78,8 @@ import { AuthProvider } from '../providers/auth/auth';
     PrimeiraNoticiaPage,
     SegundaNoticiaaPage,
     TerceiraNoticiaaPage,
-    QuartaNoticiaaPage 
+    QuartaNoticiaaPage,
+    CadastrarNoticiaPage 
      
   ],
   providers: [
@@ -83,7 +88,8 @@ import { AuthProvider } from '../providers/auth/auth';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Push,
     Camera,
-    AuthProvider
+    AuthProvider,
+    
     
     
   ]
