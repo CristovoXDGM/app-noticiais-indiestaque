@@ -1,9 +1,12 @@
-import { CadastrarNoticia } from './../../models/cadastrar-noticia/cadastrar-noticia.interface';
+
 import { Component } from '@angular/core';
-import {  NavController, NavParams, PopoverController } from 'ionic-angular';
+import { NavController, NavParams, PopoverController, AlertController } from 'ionic-angular';
 import { PopoverComponent } from '../../components/popover/popover';
-import { AngularFireDatabase} from 'angularfire2/database';
-import { AngularFireList } from'angularfire2/database';
+import { AngularFirestore,AngularFirestoreCollection } from 'angularfire2/firestore';
+import { Observable } from 'rxjs/Observable';
+import { NoticiasPage } from '../noticias/noticias';
+
+import { CadastrarNoticia } from '../../models/cadastrar-noticia/cadastrar-noticia.interface';
 
 
 @Component({
@@ -11,23 +14,24 @@ import { AngularFireList } from'angularfire2/database';
   templateUrl: 'cadastrar-noticia.html',
 })
 export class CadastrarNoticiaPage {
-
+image:any;
 
   cadastrarnoticia = {} as CadastrarNoticia;
-
-   cadastrarnoticiaRef$: AngularFireList <CadastrarNoticia[] >;
-
+  private noticiasCollection:AngularFirestoreCollection<CadastrarNoticia>;
+  noticias:Observable<CadastrarNoticia[]>;    
+             
   constructor(
     public navCtrl: NavController,
     public popoverCtrl : PopoverController, 
     public navParams: NavParams,
-    private database:AngularFireDatabase
+
+    private database:AngularFirestore,
+    public alertCtrl:AlertController
   ) 
   {
-    database.list<CadastrarNoticia>('noticias').valueChanges().subscribe(console.log);
-    this.cadastrarnoticiaRef$ = this.database.list('NoticiasPage');
-
-
+    
+    this.noticiasCollection = database.collection<CadastrarNoticia>('Noticias');
+    this.noticias = this.noticiasCollection.valueChanges();
   }
 
   
@@ -41,10 +45,18 @@ export class CadastrarNoticiaPage {
   }
 
   addNoticia(cadastrarNoticia:CadastrarNoticia){
-    
-    this.cadastrarnoticiaRef$.push([this.cadastrarnoticia]);
-    let listObsevable = this.cadastrarnoticiaRef$.snapshotChanges();
-    listObsevable.subscribe();    
+
+    this.noticiasCollection.add(this.cadastrarnoticia);
+    let cadastrado = this.alertCtrl.create({
+      title:"Noticia cadastrada",
+      buttons:[{
+        text:"Continuar",
+        handler:data=>{
+          this.navCtrl.setRoot(NoticiasPage);
+        }
+      }]
+    });
+    cadastrado.present();
   }
 
 }

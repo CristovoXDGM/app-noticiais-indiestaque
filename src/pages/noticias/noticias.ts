@@ -10,7 +10,7 @@ import { SegundaNoticiaaPage } from '../segunda-noticiaa/segunda-noticiaa';
 import { TerceiraNoticiaaPage } from '../terceira-noticiaa/terceira-noticiaa';
 import { Storage } from '@ionic/storage';
 import { CadastrarNoticia } from '../../models/cadastrar-noticia/cadastrar-noticia.interface';
-import { AngularFireDatabase,AngularFireList } from'angularfire2/database';
+import { AngularFirestore, AngularFirestoreCollection } from'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
 
 
@@ -20,9 +20,9 @@ import { Observable } from 'rxjs/Observable';
 })
 export class NoticiasPage {
 
-  noticiasRef$:Observable<any[] >
+  
 //Array com páginas das noticias 
-notcias=[
+notcs=[
     PrimeiraNoticiaPage,
     SegundaNoticiaaPage,
     TerceiraNoticiaaPage,
@@ -62,7 +62,8 @@ notcias=[
     }
   ];
 
-  
+  private noticiasCollection:AngularFirestoreCollection<CadastrarNoticia>;
+  noticias:Observable<CadastrarNoticia[]>; 
 
   constructor(
       public navCtrl: NavController,
@@ -70,11 +71,12 @@ notcias=[
       public alertCtrl: AlertController,
       public modalCtrl: ModalController,
       public storage:Storage,
-      private db:AngularFireDatabase
+      private db:AngularFirestore
       ) 
       {
       
-        this.noticiasRef$ = db.list('NoticiasPage').valueChanges();
+        this.noticiasCollection = db.collection<CadastrarNoticia>('Noticias');
+        this.noticias = this.noticiasCollection.valueChanges();
         
       }
 
@@ -91,7 +93,7 @@ notcias=[
     for (let i = 0; i < this.not.length; i++) {
       
       if(id == this.not[i].id){
-          let modal = this.modalCtrl.create(this.notcias[i]);
+          let modal = this.modalCtrl.create(this.notcs[i]);
           modal.present();
       }
       

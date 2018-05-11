@@ -26,7 +26,7 @@ import { TerceiraNoticiaaPage } from '../pages/terceira-noticiaa/terceira-notici
 import { Push  } from '@ionic-native/push';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireModule} from 'angularfire2';
-import {AngularFireDatabaseModule}from 'angularfire2/database'
+import {AngularFirestoreModule}from 'angularfire2/firestore'
 import { FirebaseCredentials } from './app.firebase.provider';
 import { IonicStorageModule } from '@ionic/storage';
 import { AuthProvider } from '../providers/auth/auth';
@@ -61,7 +61,7 @@ import { CadastrarNoticiaPage } from '../pages/cadastrar-noticia/cadastrar-notic
     AngularFireAuthModule,
     AngularFireModule.initializeApp(FirebaseCredentials),
     IonicStorageModule.forRoot({name:'__mydb'}),
-    AngularFireDatabaseModule
+    AngularFirestoreModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
