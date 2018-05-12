@@ -33,7 +33,8 @@
       <ion-label floating  >Categoria</ion-label>
       <ion-input type="text"  clearInput [(ngModel)]="cadastrarnoticia.categoria"></ion-input>
     </ion-item>
-    
+        
+       <button ion-button (click)="Sendphoto()">Enviar Imagem</button>
     <ion-buttons>
       <button ion-button block (click)="addNoticia(cadastrarnoticia)">Enviar</button>
     </ion-buttons>
