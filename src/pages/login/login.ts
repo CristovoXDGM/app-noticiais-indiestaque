@@ -72,9 +72,9 @@ export class LoginPage {
 
     let sigInProvider = null;
     switch (provider) {
-      case "facebook":
-      sigInProvider = new firebase.auth.FacebookAuthProvider();
-        break;
+      //case "facebook":
+      //sigInProvider = new firebase.auth.FacebookAuthProvider();
+        //break;
       case "twitter":
       sigInProvider = new firebase.auth.TwitterAuthProvider();
        break;
