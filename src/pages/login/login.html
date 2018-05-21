@@ -63,6 +63,11 @@
         </ion-row>
 
         <ion-row>
+            <ion-col>
+                <button class="facebook" ion-button color="light" (click)="logIn('facebook')" *ngIf="!userLogged.logged">
+                  <ion-icon  color="light" name="logo-facebook"></ion-icon>
+                </button>
+            </ion-col>
           <ion-col>
               <button class="twitter" color="light" *ngIf="!userLogged.logged" (click)="logIn('twitter')">
                 <ion-icon  color="light" name="logo-twitter"></ion-icon>
