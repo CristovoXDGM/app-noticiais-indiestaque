@@ -58,13 +58,13 @@ export class LoginPage {
     
       this.fire.auth.signInWithEmailAndPassword(this.email.value,this.password.value)
       .then(data=>{
-        this.alert('Success you\'re logged in')
+        this.alert('Seja bem-vindo')
         this.navCtrl.setRoot(NoticiasPage);
         console.log('got some data',data);
       })
       .catch(error=>{
         this.alert(error.message);
-        console.log('got an error',error);
+        console.log('Erro',error);
       })
     }
 
@@ -86,7 +86,7 @@ export class LoginPage {
       .then(() =>{
         this.fire.auth.getRedirectResult().then(res => {
         
-        this.storage.set('provider',provider);
+        
         this.userLogged.logged=true;
         this.userLogged.name = res.user.displayName;
         this.userLogged.email = res.user.email;

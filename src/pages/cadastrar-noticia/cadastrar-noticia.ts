@@ -49,6 +49,7 @@ export class CadastrarNoticiaPage {
 
   addNoticia(cadastrarNoticia:CadastrarNoticia){
 
+    
     this.noticiasCollection.add(this.cadastrarnoticia);
     let cadastrado = this.alertCtrl.create({
       title:"Noticia cadastrada",
@@ -62,41 +63,6 @@ export class CadastrarNoticiaPage {
     cadastrado.present();
   }
 
- async Sendphoto(){
-  try{
-    const options: CameraOptions = {
-      
-      correctOrientation: true,
-      allowEdit: true,
-      quality: 100,
-      destinationType: this.camera.DestinationType.DATA_URL,
-      encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE,
-      sourceType : this.camera.PictureSourceType.PHOTOLIBRARY
-   
-    }
-    
-    
-    const result = await this.camera.getPicture(options) ;
-
-    const image = 'data:image/jpeg;base64,${result}';
-
-    const pictures = storage().ref('pictures');
-
-    pictures.putString(image,'data_url');
-     } 
-  catch(e){
-     let erro =  this.alertCtrl.create({
-        message:'Erro ao enviar imagem',
-        buttons:[{
-          text:'Continuar',
-          handler:data=>{
-            erro.dismiss();
-          }
-        }]
-      });
-      erro.present();
-    }
- }
+  
 
 }

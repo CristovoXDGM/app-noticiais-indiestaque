@@ -52,15 +52,16 @@ export class CadastrarPage {
     })
     .catch(error=>{
       let wrong = this.alertCrl.create({
-        title:'Error :'+error,
+        title:'Não foi possivel cadastrar, verifique se o e-mail e a senha estão corretos' ,
         buttons:[{
           text:'ok',
           handler:data=>{
             
-            wrong.dismiss();
+            this.navCtrl.push(CadastrarPage);
           }
         }]
       });
+      wrong.present();
     });
   }
  

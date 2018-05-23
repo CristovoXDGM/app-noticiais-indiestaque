@@ -21,10 +21,20 @@
           <p>{{noticia.categoria}}</p>
           <h2>{{noticia.tituloNoticia}}</h2>
         </ion-card-header>
+         <img  [src]="noticia.imagem"/>
       <ion-card-content>
-        <h2>{{noticia.textoMateria}}</h2>
+        <h2>{{noticia.previaMateria}}</h2>
       </ion-card-content>    
       
+      <ion-row>
+        <ion-col>
+          <button ion-button clear small >Ver noticia</button>
+        </ion-col>
+        <ion-col>
+            <button ion-button clear small>Ver Video</button>
+        </ion-col>
+      </ion-row>
+
     </ion-card>
   <ion-row >
       

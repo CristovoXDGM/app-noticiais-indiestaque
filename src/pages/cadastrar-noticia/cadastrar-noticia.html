@@ -20,21 +20,35 @@
 
 
 <ion-content padding>
-  
+    
     <ion-item>
-      <ion-label floating >Titulo da noticia</ion-label>
-      <ion-input type="text"  clearInput [(ngModel)]="cadastrarnoticia.tituloNoticia"></ion-input>
+      <ion-label stacked  color="primary">Titulo da noticia</ion-label>
+      <ion-input type="text"  clearInput [maxlength]="20" [(ngModel)]="cadastrarnoticia.tituloNoticia"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label floating >Texto da matéria</ion-label>
+      <ion-label stacked  color="primary">Prévia da matéria</ion-label>
+      <ion-textarea type="text"  clearInput [(ngModel)]="cadastrarnoticia.previaMateria"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked   color="primary">Texto da matéria</ion-label>
       <ion-textarea type="text"  clearInput [(ngModel)]="cadastrarnoticia.textoMateria"></ion-textarea>
     </ion-item>
+
     <ion-item>
-      <ion-label floating  >Categoria</ion-label>
+      <ion-label stacked  color="primary">Categoria</ion-label>
       <ion-input type="text"  clearInput [(ngModel)]="cadastrarnoticia.categoria"></ion-input>
     </ion-item>
-        
-       <button ion-button (click)="Sendphoto()">Enviar Imagem</button>
+
+    <ion-item>
+      <ion-label stacked  color="primary" >Link da imagem</ion-label>
+      <ion-input type="text"  clearInput [(ngModel)]="cadastrarnoticia.imagem"></ion-input>
+    </ion-item> 
+
+    <ion-item>
+      <ion-label stacked  color="primary" >número de identificação</ion-label>
+      <ion-input type="number"  clearInput [(ngModel)]="cadastrarnoticia.id"></ion-input>
+    </ion-item>
+    
     <ion-buttons>
       <button ion-button block (click)="addNoticia(cadastrarnoticia)">Enviar</button>
     </ion-buttons>
