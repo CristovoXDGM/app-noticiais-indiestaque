@@ -17,7 +17,7 @@ import { LoginPage } from '../pages/login/login';
 import { CadastrarPage } from '../pages/cadastrar/cadastrar';
 
 //imports externos
-
+ 
 import { Camera } from '@ionic-native/camera';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -62,6 +62,7 @@ import { CadastrarNoticiaPage } from '../pages/cadastrar-noticia/cadastrar-notic
     AngularFireModule.initializeApp(FirebaseCredentials),
     IonicStorageModule.forRoot({name:'__mydb'}),
     AngularFirestoreModule
+     
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -88,7 +89,7 @@ import { CadastrarNoticiaPage } from '../pages/cadastrar-noticia/cadastrar-notic
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Push,
     Camera,
-    AuthProvider,
+    AuthProvider
     
     
     

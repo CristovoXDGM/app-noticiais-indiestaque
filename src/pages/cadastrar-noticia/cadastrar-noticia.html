@@ -48,7 +48,9 @@
       <ion-label stacked  color="primary" >número de identificação</ion-label>
       <ion-input type="number"  clearInput [(ngModel)]="cadastrarnoticia.id"></ion-input>
     </ion-item>
-    
+    <ion-buttons>
+      <button ion-button block (click)="enviarImagem()">Enviar image</button>
+    </ion-buttons>
     <ion-buttons>
       <button ion-button block (click)="addNoticia(cadastrarnoticia)">Enviar</button>
     </ion-buttons>
