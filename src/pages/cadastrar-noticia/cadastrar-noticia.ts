@@ -17,6 +17,7 @@ declare var window:any;
 })
 export class CadastrarNoticiaPage {
   
+  image:any;
   public FirebaseRef:any;
   cadastrarnoticia = {} as CadastrarNoticia;
   private noticiasCollection:AngularFirestoreCollection<CadastrarNoticia>;
@@ -36,6 +37,7 @@ export class CadastrarNoticiaPage {
     this.noticiasCollection = this.database.collection<CadastrarNoticia>('Noticias');
     this.noticias = this.noticiasCollection.valueChanges();
     this.FirebaseRef = firebase.storage().ref();
+    
   }
 
   
@@ -75,9 +77,14 @@ export class CadastrarNoticiaPage {
       sourceType : this.camera.PictureSourceType.SAVEDPHOTOALBUM
     }
     this.camera.getPicture(options).then(fileuri =>{
-      
-      window.resolveLocalFileSystemURL("file://"+fileuri, FE=>{
+    
 
+
+      window.resolveLocalFileSystemURL("file://"+fileuri, FE=>{
+        this.image = fileuri;
+
+        this.cadastrarnoticia.imagem = this.image;
+        
         FE.file(file=>{
           const FR = new FileReader()
           FR.onloadend = (res:any) => {
