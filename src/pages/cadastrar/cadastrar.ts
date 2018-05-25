@@ -1,3 +1,5 @@
+import { Observable } from 'rxjs/Observable';
+import { AngularFirestoreCollection, AngularFirestore } from 'angularfire2/firestore';
  
  
 import { Camera,CameraOptions } from '@ionic-native/camera';
@@ -5,6 +7,7 @@ import { Component, ViewChild } from '@angular/core';
 import { NavController, ViewController, AlertController, NavParams } from 'ionic-angular';
  //import { Account } from '../../providers/auth/auth';
 import {AngularFireAuth} from 'angularfire2/auth';
+import { CadastrarUsuarios } from '../../models/cadastrar-usuario/cadastrar-usuarios.interface';
 
 @Component({
   selector: 'page-cadastrar',
@@ -12,29 +15,32 @@ import {AngularFireAuth} from 'angularfire2/auth';
 })
 export class CadastrarPage {
 
+
   myphoto:any;
  //model:Account;
   
- @ViewChild('email') email;
- @ViewChild('password') password;
- 
+ cadastrarUsuario = {} as CadastrarUsuarios;
+ private usuariosCollection: AngularFirestoreCollection<CadastrarUsuarios>;
+ usuarios:Observable<CadastrarUsuarios[]>;
 
   constructor(
     public navCtrl: NavController, 
     public viewCtrl:ViewController,
     private camera: Camera,
+    private database:AngularFirestore,
     public alertCrl:AlertController,
     public navParams:NavParams, 
     private fire: AngularFireAuth 
   ) 
   {
-    
+    this.usuariosCollection = database.collection<CadastrarUsuarios>('usuarios');
+    this.usuarios = this.usuariosCollection.valueChanges();
   }
 
-  registerUser(){
-    this.fire.auth.createUserWithEmailAndPassword(this.email.value,this.password.value)
+  registerUser(cadastraruUsuario:CadastrarUsuarios){
+    this.fire.auth.createUserWithEmailAndPassword(this.cadastrarUsuario.email,this.cadastrarUsuario.password)
     .then(data =>{
-      
+      this.usuariosCollection.add(this.cadastrarUsuario);
       let create = this.alertCrl.create({
 
         title:'Usuário cadastrado',
@@ -103,6 +109,8 @@ export class CadastrarPage {
     this.camera.getPicture(options).then((imageData) => {
      
      this.myphoto = 'data:image/jpeg;base64,' + imageData;
+
+     
     }, (err) => {
       
     });

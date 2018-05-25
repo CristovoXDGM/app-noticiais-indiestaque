@@ -37,20 +37,25 @@
    
 </ion-item>
 
+<ion-item color="Background" >
+  <ion-label floating>Nome</ion-label>
+  <ion-input type="email"  [(ngModel)]="cadastrarUsuario.nome" ></ion-input>
+</ion-item>
+
   <ion-item color="Background" >
     <ion-label floating>E-mail</ion-label>
-    <ion-input type="email"   #email></ion-input>
+    <ion-input type="email"   [(ngModel)]="cadastrarUsuario.email" ></ion-input>
   </ion-item>
 
   <ion-item color="Background" >
     <ion-label floating>senha</ion-label>
-    <ion-input type="password"   #password></ion-input>
+    <ion-input type="password"   [(ngModel)]="cadastrarUsuario.password" ></ion-input>
   </ion-item>
 
 </ion-row>
 
 <ion-row>
-  <button ion-button block round (click)="registerUser()">Cadastrar</button>
+  <button ion-button block round (click)="registerUser(cadastrarUsuario)">Cadastrar</button>
 </ion-row>
 
 </ion-grid>

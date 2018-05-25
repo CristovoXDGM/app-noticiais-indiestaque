@@ -1,12 +1,9 @@
-import { FirebaseCredentials } from './../../app/app.firebase.provider';
-
 import { Component } from '@angular/core';
 import { NavController, NavParams, PopoverController, AlertController } from 'ionic-angular';
 import { PopoverComponent } from '../../components/popover/popover';
 import { AngularFirestore,AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
 import { NoticiasPage } from '../noticias/noticias';
-import {storage,initializeApp } from 'firebase';
 import { CadastrarNoticia } from '../../models/cadastrar-noticia/cadastrar-noticia.interface';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 
@@ -33,7 +30,7 @@ export class CadastrarNoticiaPage {
   ) 
   {
      
-    this.noticiasCollection = database.collection<CadastrarNoticia>('Noticias');
+    this.noticiasCollection = this.database.collection<CadastrarNoticia>('Noticias');
     this.noticias = this.noticiasCollection.valueChanges();
   }
 
