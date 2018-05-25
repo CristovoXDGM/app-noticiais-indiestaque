@@ -4,6 +4,6 @@ export interface CadastrarNoticia{
     textoMateria:string;
     previaMateria:string;
     categoria:string;
-    imagem:string;
+    nomeImagem:string;
     
 }

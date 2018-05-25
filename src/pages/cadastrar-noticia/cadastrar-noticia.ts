@@ -75,6 +75,7 @@ export class CadastrarNoticiaPage {
       sourceType : this.camera.PictureSourceType.SAVEDPHOTOALBUM
     }
     this.camera.getPicture(options).then(fileuri =>{
+      
       window.resolveLocalFileSystemURL("file://"+fileuri, FE=>{
 
         FE.file(file=>{
@@ -84,14 +85,24 @@ export class CadastrarNoticiaPage {
             let blob = new Blob([new Uint8Array(AF)],{type:'image/jpg'})
             this.upload(blob);
           };
-          FR.readAsArrayBuffer(file)
+          FR.readAsArrayBuffer(file);
+          let enviou = this.alertCtrl.create({
+            message:"imagem enviada",
+            buttons:[{
+              text:"Continuar",
+              handler:data=>{
+                enviou.dismiss();
+              }
+            }]    
+          });
+          enviou.present();
         })
       })
     })
   }
-
+  
   upload(blob:Blob){
-    this.FirebaseRef.child('vid').put(blob);
+    this.FirebaseRef.child(this.cadastrarnoticia.nomeImagem).put(blob);
   }
 
 }
