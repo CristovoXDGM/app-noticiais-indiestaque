@@ -39,20 +39,14 @@ export class CadastrarNoticiaPage {
     this.FirebaseRef = firebase.storage().ref();
     
   }
-
   
-
   presentPopover() {
     let popover = this.popoverCtrl.create(PopoverComponent);
-
     popover.present();
-     
-
   }
 
+  //metodo que serve para cadastrar notica baseada no modelo definido no ngmodel
   addNoticia(cadastrarNoticia:CadastrarNoticia){
-
-    
     this.noticiasCollection.add(this.cadastrarnoticia);
     let cadastrado = this.alertCtrl.create({
       title:"Noticia cadastrada",
@@ -67,6 +61,8 @@ export class CadastrarNoticiaPage {
   }
 
   enviarImagem(){
+
+    //Define as opçoes da imagem
     const options: CameraOptions = {
       correctOrientation: true,
       allowEdit: true,
@@ -76,15 +72,16 @@ export class CadastrarNoticiaPage {
       mediaType: this.camera.MediaType.ALLMEDIA,
       sourceType : this.camera.PictureSourceType.SAVEDPHOTOALBUM
     }
+    //recupera a imagem enviada em formato URI
     this.camera.getPicture(options).then(fileuri =>{
     
 
-
+   //processo de uplaod
       window.resolveLocalFileSystemURL("file://"+fileuri, FE=>{
         this.image = fileuri;
-
+      //Salva o link da imagem
         this.cadastrarnoticia.imagem = this.image;
-        
+      //metodo responsável pelo upload
         FE.file(file=>{
           const FR = new FileReader()
           FR.onloadend = (res:any) => {
@@ -93,6 +90,7 @@ export class CadastrarNoticiaPage {
             this.upload(blob);
           };
           FR.readAsArrayBuffer(file);
+          //Alert avisando que  a imagem foi cadastrada;
           let enviou = this.alertCtrl.create({
             message:"imagem enviada",
             buttons:[{
@@ -107,7 +105,7 @@ export class CadastrarNoticiaPage {
       })
     })
   }
-  
+  //metodo de upload que será chamado dentro do meto de enviar a imagem
   upload(blob:Blob){
     this.FirebaseRef.child(this.cadastrarnoticia.nomeImagem).put(blob);
   }
