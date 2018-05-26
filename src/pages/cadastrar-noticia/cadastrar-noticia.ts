@@ -103,7 +103,7 @@ export class CadastrarNoticiaPage {
           enviou.present();
         })
       })
-    })
+    });
   }
   //metodo de upload que será chamado dentro do meto de enviar a imagem
   upload(blob:Blob){

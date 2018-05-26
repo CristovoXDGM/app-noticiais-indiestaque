@@ -1,13 +1,13 @@
 import { Observable } from 'rxjs/Observable';
 import { AngularFirestoreCollection, AngularFirestore } from 'angularfire2/firestore';
- 
- 
 import { Camera,CameraOptions } from '@ionic-native/camera';
 import { Component, ViewChild } from '@angular/core';
 import { NavController, ViewController, AlertController, NavParams } from 'ionic-angular';
- //import { Account } from '../../providers/auth/auth';
+import firebase from 'firebase';
+import {File}from '@ionic-native/file';
 import {AngularFireAuth} from 'angularfire2/auth';
 import { CadastrarUsuarios } from '../../models/cadastrar-usuario/cadastrar-usuarios.interface';
+declare var window:any;
 
 @Component({
   selector: 'page-cadastrar',
@@ -15,7 +15,7 @@ import { CadastrarUsuarios } from '../../models/cadastrar-usuario/cadastrar-usua
 })
 export class CadastrarPage {
 
-
+  public FirebaseRef:any;
   myphoto:any;
  //model:Account;
   
@@ -35,6 +35,7 @@ export class CadastrarPage {
   {
     this.usuariosCollection = database.collection<CadastrarUsuarios>('usuarios');
     this.usuarios = this.usuariosCollection.valueChanges();
+    this.FirebaseRef = firebase.storage().ref();
   }
 
   registerUser(cadastraruUsuario:CadastrarUsuarios){
@@ -79,41 +80,89 @@ export class CadastrarPage {
       correctOrientation: true,
       allowEdit: true,
       quality: 100,
-      destinationType: this.camera.DestinationType.DATA_URL,
+      destinationType: this.camera.DestinationType.FILE_URI,
       encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE,
+      mediaType: this.camera.MediaType.ALLMEDIA,
       sourceType : this.camera.PictureSourceType.CAMERA
     }
     
-    
-    this.camera.getPicture(options).then((imageData) => {
-     
-     this.myphoto = 'data:image/jpeg;base64,' + imageData;
-    }, (err) => {
+    this.camera.getPicture(options).then(fileuri =>{
       
+      window.resolveLocalFileSystemURL("file://"+fileuri, FE=>{
+        this.myphoto = fileuri;
+
+        this.cadastrarUsuario.imagem = this.myphoto;
+        
+        FE.file(file=>{
+          const FR = new FileReader()
+          FR.onloadend = (res:any)=>{
+            let AF = res.target.result
+            let blob = new Blob([new Uint8Array(AF)],{type:'image/jpg'})
+            this.upload(blob);
+          };
+          FR.readAsArrayBuffer(file);
+          //Alert avisando que  a imagem foi cadastrada;
+          let enviou = this.alertCrl.create({
+            message:"imagem enviada",
+            buttons:[{
+              text:"Continuar",
+              handler:data=>{
+                enviou.dismiss();
+              }
+            }]    
+          });
+          enviou.present();
+        })
+      })
     });
+     
   }
+
 
   getPhoto(){
     const options: CameraOptions = {
       correctOrientation: true,
       allowEdit: true,
       quality: 100,
-      destinationType: this.camera.DestinationType.DATA_URL,
+      destinationType: this.camera.DestinationType.FILE_URI,
       encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE,
-      sourceType : this.camera.PictureSourceType.PHOTOLIBRARY
+      mediaType: this.camera.MediaType.ALLMEDIA,
+      sourceType : this.camera.PictureSourceType.SAVEDPHOTOALBUM
     }
     
-    
-    this.camera.getPicture(options).then((imageData) => {
-     
-     this.myphoto = 'data:image/jpeg;base64,' + imageData;
-
-     
-    }, (err) => {
+    this.camera.getPicture(options).then(fileuri =>{
       
+      window.resolveLocalFileSystemURL("file://"+fileuri, FE=>{
+        this.myphoto = fileuri;
+
+        this.cadastrarUsuario.imagem = this.myphoto;
+        
+        FE.file(file=>{
+          const FR = new FileReader()
+          FR.onloadend = (res:any)=>{
+            let AF = res.target.result
+            let blob = new Blob([new Uint8Array(AF)],{type:'image/jpg'})
+            this.upload(blob);
+          };
+          FR.readAsArrayBuffer(file);
+          //Alert avisando que  a imagem foi cadastrada;
+          let enviou = this.alertCrl.create({
+            message:"imagem enviada",
+            buttons:[{
+              text:"Continuar",
+              handler:data=>{
+                enviou.dismiss();
+              }
+            }]    
+          });
+          enviou.present();
+        })
+      })
     });
+     
+  }
+  upload(blob:Blob){
+    this.FirebaseRef.child(this.cadastrarUsuario.nome).put(blob);
   }
 
 }
