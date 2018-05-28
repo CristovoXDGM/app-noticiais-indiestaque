@@ -25,12 +25,12 @@
 
           <ion-item color="Background" *ngIf="!userLogged.logged">
             <ion-label floating color="light" >E-mail</ion-label>
-            <ion-input large type = "text" color="light"  #email></ion-input>
+            <ion-input large  type = "text"  color="light"  [(ngModel)]="cadastrarUsuario.email" ></ion-input>
           </ion-item>
 
         <ion-item color="Background" *ngIf="!userLogged.logged">
           <ion-label floating color="light" >Senha</ion-label>
-          <ion-input large type = "password" color="light"   #password></ion-input>
+          <ion-input large type = "password" color="light"   [(ngModel)]="cadastrarUsuario.password"></ion-input>
         </ion-item>
 
       </ion-row>

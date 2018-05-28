@@ -4,8 +4,9 @@ import { CadastrarPage } from './../cadastrar/cadastrar';
 import { Component, ViewChild,  ChangeDetectorRef } from '@angular/core';
 import { NavController, ViewController, NavParams, AlertController } from 'ionic-angular';
 import firebase from 'firebase';
-import { AngularFireAuth} from 'angularfire2/auth'
+import { AngularFireAuth} from 'angularfire2/auth';
 import { NoticiasPage } from '../noticias/noticias';
+import { CadastrarUsuarios } from '../../models/cadastrar-usuario/cadastrar-usuarios.interface';
 
 
 
@@ -15,10 +16,9 @@ import { NoticiasPage } from '../noticias/noticias';
 })
 export class LoginPage {
 
-  teste:any;
+     islogged:boolean = false;;
 
-    @ViewChild('email') email;
-    @ViewChild('password') password;
+  cadastrarUsuario = {} as CadastrarUsuarios;
    
    userLogged =  
      {
@@ -56,9 +56,9 @@ export class LoginPage {
 
     signIn(){
     
-      this.fire.auth.signInWithEmailAndPassword(this.email.value,this.password.value)
+      this.fire.auth.signInWithEmailAndPassword(this.cadastrarUsuario.email,this.cadastrarUsuario.password)
       .then(data=>{
-        this.alert('Seja bem-vindo')
+        this.alert('Seja bem-vindo');
         this.navCtrl.setRoot(NoticiasPage);
         console.log('got some data',data);
       })

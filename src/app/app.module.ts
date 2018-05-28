@@ -1,7 +1,5 @@
 
-import { QuartaNoticiaaPage } from './../pages/quarta-noticiaa/quarta-noticiaa';
-import { SegundaNoticiaaPage } from './../pages/segunda-noticiaa/segunda-noticiaa';
-import { PrimeiraNoticiaPage } from './../pages/primeira-noticia/primeira-noticia';
+
 
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -22,7 +20,7 @@ import { Camera } from '@ionic-native/camera';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { PopoverComponent } from '../components/popover/popover';
-import { TerceiraNoticiaaPage } from '../pages/terceira-noticiaa/terceira-noticiaa';
+
 import { Push  } from '@ionic-native/push';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireModule} from 'angularfire2';
@@ -48,11 +46,8 @@ import { CadastrarNoticiaPage } from '../pages/cadastrar-noticia/cadastrar-notic
     LoginPage,
     CadastrarPage,
     PopoverComponent,
-    PrimeiraNoticiaPage,
-    SegundaNoticiaaPage,
-    TerceiraNoticiaaPage,
-    QuartaNoticiaaPage,
     CadastrarNoticiaPage
+
      
   ],
   imports: [
@@ -76,10 +71,6 @@ import { CadastrarNoticiaPage } from '../pages/cadastrar-noticia/cadastrar-notic
     LoginPage,
     CadastrarPage,
     PopoverComponent,
-    PrimeiraNoticiaPage,
-    SegundaNoticiaaPage,
-    TerceiraNoticiaaPage,
-    QuartaNoticiaaPage,
     CadastrarNoticiaPage 
      
   ],
