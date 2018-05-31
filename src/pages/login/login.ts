@@ -93,6 +93,7 @@ export class LoginPage {
         this.userLogged.profilepicture = res.user.photoURL;
         this.ref.detectChanges();
         console.log(res);
+        this.navCtrl.setRoot(NoticiasPage);
         
         });
          

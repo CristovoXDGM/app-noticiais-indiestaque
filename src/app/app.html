@@ -3,17 +3,21 @@
       <ion-list id="menu-list1" color = "Navbar" no-lines >
         <ion-item-sliding >
           <ion-grid ion-item color="Navbar" id="menu-list-item4" >
-              <h2 >
+              <h2 *ngIf="!isLogged" >
                   Faça Login no Aplicativo<br/>para receber novidades
                 </h2>
+                <h2 *ngIf="isLogged" >{{user}}</h2>
             <ion-row>
-                <ion-col >
-                    <button  menuClose="" ion-button item-left (click)="goToLogin()"  > entrar</button>
+                <ion-col col-12>
+                    
+                    <button *ngIf="!isLogged"  menuClose="" ion-button item-left (click)="goToLogin()"  > entrar</button>
                    
                 </ion-col>
-                <ion-col >
+                <ion-col col-12>
                     <ion-avatar item-left>
-                    <img  src="assets/img/j4gk6FFxT3anPxcTFJeO_register.png" />
+                    <img *ngIf="isLogged" [src] ="image"/>
+                    <img   *ngIf="!isLogged" src="assets/img/j4gk6FFxT3anPxcTFJeO_register.png" />
+                   
                 </ion-avatar>
                 </ion-col>
           </ion-row>
@@ -44,6 +48,9 @@
                 <button ion-item color = "Navbar" menuClose="" on-click="goToOpEs()" id="menu-list-item7">
                     <ion-icon name="hammer"></ion-icon>
                   Opções
+                </button>
+                <button  *ngIf="isLogged" ion-item color = "Navbar" menuClose="" (click) = "loggout()">
+                    Desconectar
                 </button>
         </ion-buttons>
       </ion-list>

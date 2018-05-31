@@ -11,6 +11,7 @@ import { OpEsPage } from '../pages/opcoes/opcoes';
 import { NoticiasPage } from '../pages/noticias/noticias';
 import { LoginPage } from '../pages/login/login';
 import { NotificaEsPage } from '../pages/notifica-es/notifica-es';
+import { AngularFireAuth } from 'angularfire2/auth';
  
 
 @Component({
@@ -18,15 +19,28 @@ import { NotificaEsPage } from '../pages/notifica-es/notifica-es';
 })
 export class MyApp {
   
-   
+  image:any;
+   user:any;
+   isLogged:boolean;
   @ViewChild(Nav) navCtrl: Nav;
     rootPage:any = NoticiasPage;
   
-  constructor( platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen  ) {
+  constructor( platform: Platform, statusBar: StatusBar,  public afAuth: AngularFireAuth,splashScreen: SplashScreen  ) {
     platform.ready().then(() => {
          
       statusBar.backgroundColorByHexString('#000000');
       splashScreen.hide();
+      
+      this.afAuth.authState.subscribe(data=>{
+        if(data && data.email){
+          this.user=data.displayName;
+          this.isLogged =true;
+          this.image = data.photoURL;
+        }
+        else{
+          this.isLogged= false
+        }
+     });
       
     });
      
@@ -56,6 +70,12 @@ export class MyApp {
   }gotTonotification(){
     this.navCtrl.push(NotificaEsPage)
   }
+
+  loggout(){
+    this.afAuth.auth.signOut();
+  }
+
+  
   
   
 }
